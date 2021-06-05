@@ -1,6 +1,6 @@
 
 /*  ==========================================
-    SHOW UPLOADED IMAGE
+    mulai Ngambil file
 * ========================================== */
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -19,9 +19,13 @@ $(function () {
         readURL(input);
     });
 });
+/*  ==========================================
+   selesai  Ngambil file
+* ========================================== */
+
 
 /*  ==========================================
-    SHOW UPLOADED IMAGE NAME
+    Nunjukin gambarnya
 * ========================================== */
 var input = document.getElementById( 'upload' );
 var infoArea = document.getElementById( 'upload-label' );
