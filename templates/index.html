@@ -125,17 +125,16 @@
           <div class="card-body">
             <div class="row py-4">
               <div class="col-lg-6 mx-auto">
-                <!-- Form mulai disini -->
-                <form action="http://127.0.0.1:5000/uploader" method="POST" enctype="multipart/form-data"></form>
-
+                
+                
                   <!-- Uploaded image area-->
                   <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p>
                   <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
                   <div id="predictions-s"></div>
                   <div id="predictions-danger"></div>
-      
+      <!-- Form mulai disini -->
                   <!-- Upload image input-->
-                  
+                  <form action="http://127.0.0.1:5000/uploader" method="POST" enctype="multipart/form-data">
                     <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
                         <input id="upload" type="file" name='file' onchange="readURL(this);" class="form-control border-0">
                         <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
