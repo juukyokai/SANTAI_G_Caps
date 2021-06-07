@@ -4,21 +4,11 @@
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-        //loading MLModel
-        console.log('Loading model..');
-        const model = tf.keras.models.load_model('model/model');
-        console.log('Successfully loaded model');
-
-        const img = input.files[0];
-        const prediction = model.predict(img);
- 
         reader.onload = function (e) {
             $('#imageResult')
                 .attr('src', e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
-        document.getElementById("predictions-safe").innerText=prediction['0']['label']+": "+Math.round(prediction['0']['prob']*100)+"%";
-        document.getElementById("predictions-danger").innerText=prediction['1']['label']+": "+Math.round(prediction['1']['prob']*100)+"%";
     }
 }
 
