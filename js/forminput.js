@@ -6,7 +6,7 @@ function readURL(input) {
         var reader = new FileReader();
         //loading MLModel
         console.log('Loading model..');
-        const model = tf.loadLayersModel('model/modeljs/model.json');
+        const model = tf.keras.models.load_model('model/model');
         console.log('Successfully loaded model');
 
         const img = input.files[0];
