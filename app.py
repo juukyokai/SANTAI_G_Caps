@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import werkzeug
-from keras.preprocessing.image import ImageDataGenerator, image
+from keras.preprocessing import image
+from keras.preprocessing.image import ImageDataGenerator
 import tensorflow as tf
 import numpy as np
 import os
