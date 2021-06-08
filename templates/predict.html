@@ -1,7 +1,110 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SANTAI - Sistem Keamanan Pantai - Prediction</title>
+    <!-- new -->
+    <link rel="text/javascript" href="//ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="{{url_for('static', filename='jquery.js') }}"></script>
+    <script class="jsbin" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script class="jsbin" src="{{ url_for('static', filename='jquery-ui.min.js') }}"></script>
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-style.css') }}" />
+    <script src="{{ url_for('static', filename='js/tf.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+     <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  </head>
 <html>
 <body>
-<h1>{{ ss }}</h1>
+    <div class="parallax-window" data-parallax="scroll" data-image-src="{{ url_for('static', filename='img/beach.jpg') }}" >
+        <!-- <div class="parallax-window" data-parallax="scroll" data-image-src="/static/img/beach.jpg" > -->
+         <div class="container-fluid">
+           <div class="row tm-brand-row">
+             <div class="col-lg-4 col-11">
+               <div class="tm-brand-container tm-transparent">
+                 <i class="fas fa-2x fa-pen tm-brand-icon"></i>
+                 <div class="tm-brand-texts">
+                   <h1 class="text-uppercase text-white tm-brand-name ">SANTAI</h1>
+                   <p class="text-white-50 small ">Sistem Keamanan Pantai</p>
+                 </div>
+               </div>
+             </div>
+             <div class="col-lg-8 col-1">
+               <div class="tm-nav">
+                 <nav class="navbar navbar-expand-lg navbar-light tm-bg-transparent tm-navbar">
+                   <button class="navbar-toggler" type="button"
+                     data-toggle="collapse" data-target="#navbarNav"
+                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                   </button>
+                   <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav">
+                       <li class="nav-item active">
+                         <div class="tm-nav-link-highlight"></div>
+                         <a class="text-white nav-link" href="#tmHome">About <span class="sr-only">(current)</span></a>
+                       </li>
+                       <li class="nav-item">
+                         <div class="tm-nav-link-highlight"></div>
+                         <a class="text-white nav-link" href="#tmFeatures">Features</a>
+                       </li>
+                       <li class="nav-item">
+                         <div class="tm-nav-link-highlight"></div>
+                         <a class="text-white nav-link" href="#imUpload">Analysis</a>
+                       </li>
+                     </ul>
+                   </div>
+                 </nav>
+               </div>
+             </div>
+           </div>
+
+
+           <div class="card text-center" id="imUpload">
+            <div class="card-header">
+              <h2>Image Analysis Result</h2>
+            </div>
+            <div class="card-body">
+              <div class="row py-4">
+                <div class="col-lg-6 mx-auto">
+
+                    <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                    <div id="predictions-s"></div>
+                    <div id="predictions-danger"></div>
+     
+                   <!-- hasil prediksi disini -->
+                   <p class="lead">
+                    The Beach in Image {{ ss }}
+                  </p>
+                 
+
+                </div>
+            </div>
+
+            <button onClick="goBack()" type="button" class="btn btn-info btn-lg"><i class="fa fa-arrow-circle-left"></i> Return to Homepage</button>
+        </div>
+
+           
+
+
+
+          <!-- Footer -->
+          <footer class="row">
+            <p class="col-12 text-white text-center tm-copyright-text">
+              Copyright &copy; 2021 Kelompok SANTAI Bangkit Academy 2021
+              Designed by <a href="#" class="tm-copyright-link">TemplateMo</a>
+            </p>
+          </footer>
+       
+  
+    <!-- <script src="{{ url_for('static', filename='js/forminput.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/parallax.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </body>
 </html>
