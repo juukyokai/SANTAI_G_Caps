@@ -20,7 +20,10 @@ $(function () {
 /*  ==========================================
    selesai  Ngambil file
 * ========================================== */
-
+/* tombol back */
+function goBack() {
+  window.history.back();
+}
 
 /*  ==========================================
     Nunjukin gambarnya
