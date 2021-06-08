@@ -65,7 +65,7 @@ def upload_file():
 		path = os.path.join(app.config['UPLOAD_FOLDER'], f.filename)
 		f.save(path)
 		val = predict(path, f.filename)
-		return render_template('predict.html', ss = val)
+		return render_template('predict.html', ss = val, fp = path)
 
 if __name__ == '__main__':
 	app.run(host='127.0.0.1', port=5000, debug=True)
