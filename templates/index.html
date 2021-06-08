@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+ <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>SANTAI - Sistem Keamanan Pantai</title>
     <!-- new -->
-    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <link rel="text/javascript" href="//ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="{{url_for('static', filename='jquery.js') }}"></script>
+    <script class="jsbin" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script class="jsbin" src="{{ url_for('static', filename='jquery-ui.min.js') }}"></script>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,600" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-style.css') }}" />
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-    <script src="{{ url_for('static', filename='upload.js') }}"></script>
-
-    <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tf.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+     <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
   </head>
+
   <body>
     <div class="parallax-window" data-parallax="scroll" data-image-src="{{ url_for('static', filename='img/beach.jpg') }}" >
+     <!-- <div class="parallax-window" data-parallax="scroll" data-image-src="/static/img/beach.jpg" > -->
       <div class="container-fluid">
         <div class="row tm-brand-row">
           <div class="col-lg-4 col-11">
@@ -74,7 +76,7 @@
               <a href="#tmFeatures" class="btn btn-primary">Learn More</a>
             </div>
             <div class="tm-home-right">
-              <img src="img/mobile-screen.png" alt="App on Mobile mockup" />
+              <img src="{{ url_for('static', filename='img/mobile-screen.png') }}" alt="App on Mobile mockup" />
             </div>
           </div>
         </section>
@@ -128,7 +130,7 @@
                 
                 
                   <!-- Uploaded image area-->
-                  <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p>
+                  <p class="font-italic text-black text-center">The image uploaded will be rendered inside the box below.</p>
                   <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
                   <div id="predictions-s"></div>
                   <div id="predictions-danger"></div>
@@ -167,9 +169,9 @@
           </footer>
        
   
-    <script src="js/forminput.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/parallax.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/forminput.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/parallax.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   </body>
 </html>
