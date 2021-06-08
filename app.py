@@ -1,31 +1,22 @@
 from flask import Flask, render_template, request
+import shutil
 import werkzeug
 from keras.preprocessing import image
 from keras.preprocessing.image import ImageDataGenerator
 import tensorflow as tf
 import numpy as np
 import os
-try:
-	import shutil
-	#clean directory
-	shutil.rmtree('uploaded/images')
-	#make new directory
-	
-	# print()
-except OSError:
-	pass
+
 
 model = tf.keras.models.load_model('model/model.h5')
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = 'uploaded/images'
 
-try:
-	os.mkdir(app.config['UPLOAD_FOLDER'])
-except OSError:
-	pass
+
 @app.route('/')
-def upload_f():
+def index():
+	reset()
 	return render_template('index.html')
 
 def predict(path, fn):
@@ -40,24 +31,21 @@ def predict(path, fn):
         return str(fn + " is Safe")
     else:
         return str(fn + " is Danger")
+def reset():
+	#clean directory
+	try:
+		shutil.rmtree('uploaded/images')
+	except OSError:
+		pass
+	
+	#ensure if the folder exists
+	try:
+		os.mkdir(app.config['UPLOAD_FOLDER'])
+	except OSError:
+		pass
 
-# def finds():
-# 	test_datagen = ImageDataGenerator(
-#         rescale = 1./255
-#         fill_mode='nearest')
-# 	vals = ['Safe', 'Danger'] # change this according to what you've trained your model to do
-# 	test_dir = 'uploaded'
-# 	test_generator = test_datagen.flow_from_directory(
-# 			test_dir,
-# 			target_size =(150, 150),
-# 			shuffle = False,
-# 			class_mode ='binary',
-# 			batch_size = 10)
-    
-# 	pred = model.predict_generator(test_generator)
-# 	print(pred)
-# 	return str(vals[np.argmax(pred)])
 
+#making route for uploading new Image
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
 	if request.method == 'POST':
@@ -65,7 +53,13 @@ def upload_file():
 		path = os.path.join(app.config['UPLOAD_FOLDER'], f.filename)
 		f.save(path)
 		val = predict(path, f.filename)
-		return render_template('predict.html', ss = val, fp = path)
+		return render_template('predict.html', ss = val, fp = 'images'+ f.filename)
+
+#making route for resetting data storage
+@app.route('/reset', methods = ['GET', 'POST'])
+def reset_image():
+	reset()
+	return render_template('index.html')
 
 if __name__ == '__main__':
-	app.run(host='127.0.0.1', port=5000, debug=True)
+	app.run(debug=True)
