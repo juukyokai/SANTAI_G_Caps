@@ -55,6 +55,7 @@ def upload_file():
 		val = predict(path, f.filename)
 		return render_template('predict.html', ss = val, fp = 'images'+ f.filename)
 
+
 #making route for resetting data storage
 @app.route('/reset', methods = ['GET', 'POST'])
 def reset_image():
